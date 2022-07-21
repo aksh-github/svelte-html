@@ -1,35 +1,43 @@
 <script lang="ts">
   import Router, { link } from "svelte-spa-router";
+  import active from "svelte-spa-router/active";
+  import wrap from "svelte-spa-router/wrap";
   import Counter from "./lib/Counter.svelte";
-  import Emoji from "./lib/Emoji.svelte";
-  import SelectContent from "./lib/SelectContent.svelte";
-  import NotFound from "./lib/NotFound.svelte";
-  import Recursive from "./lib/Recursive/Recursive.svelte";
-  import JsonRecursive from "./lib/JsonExplo/JsonRecursive.svelte";
-  import DeskNotify from "./lib/DeskNotify.svelte";
 
   const routes = {
     // Exact path
     "/": Counter,
-    "/emoji": Emoji,
-    "/selectcontent": SelectContent,
-    "/recursive": Recursive,
-    "/jsonrecursive": JsonRecursive,
-    "/desknotify": DeskNotify,
+    "/emoji": wrap({
+      asyncComponent: () => import("./lib/Emoji.svelte"),
+    }),
+    "/selectcontent": wrap({
+      asyncComponent: () => import("./lib/SelectContent.svelte"),
+    }),
+    "/recursive": wrap({
+      asyncComponent: () => import("./lib/Recursive/Recursive.svelte"),
+    }),
+    "/jsonrecursive": wrap({
+      asyncComponent: () => import("./lib/JsonExplo/JsonRecursive.svelte"),
+    }),
+    "/desknotify": wrap({
+      asyncComponent: () => import("./lib/DeskNotify.svelte"),
+    }),
     // Catch-all
     // This is optional, but if present it must be the last
-    "*": NotFound,
+    "*": wrap({
+      asyncComponent: () => import("./lib/NotFound.svelte"),
+    }),
   };
 </script>
 
 <header>
   <nav>
-    <a href="/" use:link>Home</a>
-    <a href="/emoji" use:link>Emoji Example</a>
-    <a href="/selectcontent" use:link>Select n Copy</a>
-    <a href="/recursive" use:link>Recursive</a>
-    <a href="/jsonrecursive" use:link>Json Explorer</a>
-    <a href="/desknotify" use:link>Desk Notification</a>
+    <a href="/" use:link use:active>Home</a>
+    <a href="/emoji" use:link use:active>Emoji Example</a>
+    <a href="/selectcontent" use:link use:active>Select n Copy</a>
+    <a href="/recursive" use:link use:active>Recursive</a>
+    <a href="/jsonrecursive" use:link use:active>Json Explorer</a>
+    <a href="/desknotify" use:link use:active>Desk Notification</a>
   </nav>
 </header>
 <main>
@@ -56,5 +64,9 @@
   a {
     margin: 1em;
     display: inline-block;
+  }
+
+  :global(a.active) {
+    color: red;
   }
 </style>
