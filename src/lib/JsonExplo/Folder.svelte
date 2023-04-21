@@ -24,6 +24,10 @@
   //   parentName = parentName ? parentName + "." + displayName : displayName;
   //   console.log(parentName, displayName);
   // });
+
+  function liClicked(ob) {
+    console.log(ob);
+  }
 </script>
 
 <span name={parentName} class:expanded on:click={toggle}
@@ -33,11 +37,19 @@
 {#if expanded}
   <ul transition:slide={{ duration: 300 }}>
     {#each Object.entries(files) as file, idx}
-      <li name={parentName + "." + file[0]}>
+      <li
+        name={parentName + "." + file[0]}
+        on:click={(e) => {
+          e.stopPropagation();
+          liClicked(file);
+        }}
+      >
         {#if typeof file[1] === "object"}
           {file[0]}: <svelte:self files={file[1]} parentName={parentName + "." + file[0]} displayName={""} />
         {:else}
-          {file[0]}: {file[1]}
+          {file[0]}:
+          <div>{file[1]}</div>
+          <!-- <input type="text" value={file[1]} /> -->
         {/if}
       </li>
     {/each}
@@ -47,14 +59,14 @@
 <style>
   span {
     padding: 0 0 0 1.5em;
-    background: url(/public/folder.svg) 0 0.1em no-repeat;
+    background: url(/folder.svg) 0 0.1em no-repeat;
     background-size: 1em 1em;
     /* font-weight: bold; */
     cursor: pointer;
   }
 
   .expanded {
-    background-image: url(/public/folder-open.svg);
+    background-image: url(/folder-open.svg);
   }
 
   ul {

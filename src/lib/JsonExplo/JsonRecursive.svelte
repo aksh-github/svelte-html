@@ -2,19 +2,53 @@
   import Folder from "./Folder.svelte";
 
   let root2 = {
-    a: "this is for a",
-    b: "this is for b",
-    d: {
-      d1: 10,
-      d2: "this is for d2",
-      d31: "this is for d1",
-      d42: "this is for d2",
-      d51: "this is for d1",
-      d52: "this is for d2",
-      d61: "this is for d1",
-      d62: "this is for d2",
+    "0": {
+      "5": [],
     },
-    fdd: [10, 20],
+    year: {
+      Feb: {
+        "8": ["Baba BDay"],
+      },
+      Mar: {
+        "3": ["Investment to Gdrive"],
+        "8": ["Investment to Gdrive"],
+        "15": ["Investment to Gdrive"],
+        "22": ["Investment to Gdrive"],
+      },
+      Apr: {
+        "5": ["Upload half yearly HDFC bank statement, PPF statement"],
+        "15": ["Upload half yearly HDFC bank statement, PPF statement"],
+        "25": ["Upload half yearly HDFC bank statement, PPF statement", "Get 26AS, AIS, TIS"],
+      },
+      May: {
+        "25": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
+      },
+      Jun: {
+        "15": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
+        "25": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
+      },
+      Jul: {
+        "15": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
+        "25": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
+      },
+      Aug: {
+        "6": ["Ak BDay", "Renew PUC"],
+        "15": ["Ruta Bday", "Renew PUC"],
+      },
+      Dec: {
+        "24": ["Pay SBI Insurance"],
+      },
+      Oct: {
+        "5": ["Upload half yearly HDFC bank statement"],
+        "15": ["Upload half yearly HDFC bank statement"],
+        "25": ["Upload half yearly HDFC bank statement"],
+      },
+    },
+    month: {
+      "1": ["Vodafone Bill"],
+      "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS"],
+      "5": ["Upload Salary slip, Investment to Gdrive"],
+    },
   };
 
   let root = {
@@ -132,7 +166,7 @@
 
 <input bind:value={path} />
 <div class="explorer" on:click={eleClicked}>
-  <Folder displayName="$" files={root} parentName="" expanded />
+  <Folder displayName="$" files={root2} parentName="" expanded />
 </div>
 
 <style>

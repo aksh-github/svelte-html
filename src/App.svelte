@@ -25,6 +25,9 @@
     "/cropimg": wrap({
       asyncComponent: () => import("./lib/CropImg.svelte"),
     }),
+    "/dates": wrap({
+      asyncComponent: () => import("./lib/Dates.svelte"),
+    }),
     // Catch-all
     // This is optional, but if present it must be the last
     "*": wrap({
@@ -42,6 +45,7 @@
     <a href="/jsonrecursive" use:link use:active>Json Explorer</a>
     <a href="/desknotify" use:link use:active>Desk Notification</a>
     <a href="/cropimg" use:link use:active>Crop Image</a>
+    <a href="/dates" use:link use:active>Dates</a>
   </nav>
 </header>
 <main>
