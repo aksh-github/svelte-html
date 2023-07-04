@@ -2,6 +2,8 @@
   import { onMount } from "svelte";
   import dayjs from "dayjs";
 
+  let curDateTasks = [], curMonthTasks = []
+
   const data = {
     "0": {
       "5": [],
@@ -60,7 +62,18 @@
     console.log("this month");
 
     Object.keys(yearData).forEach((key) => {
-      if (months[today.month()] == key) console.log(yearData[`${key}`]);
+      if (months[today.month()] == key) {
+        // console.log(yearData[`${key}`]);
+        const curMonthData = yearData[`${key}`];
+        Object.keys(curMonthData).forEach((dt) => {
+          // console.log(dt + '-' + months[today.month()], curMonthData[dt])
+          curMonthData[dt].forEach((d)=> {
+            curMonthTasks = [...curMonthTasks, {item: dt + '-' + months[today.month()] + ": " + d}]
+          })
+          
+        })
+
+      }
     });
   };
 
@@ -76,8 +89,13 @@
 
       const daysPast = dt.diff(today, "day");
 
-      if (dt.isBefore(after) && dt.isAfter(b4))
-        console.log(dt.date() + "-" + months[today.month()], monthData[`${key}`], "(", getColor(daysPast), ")");
+      if (dt.isBefore(after) || dt.isAfter(b4)) {
+        let item = dt.date() + ": " + monthData[key]
+        console.log(item);
+        curDateTasks = [...curDateTasks, {item: item, bgcolor: getColor(daysPast)}]
+      }
+        
+        
     });
   };
 
@@ -110,4 +128,30 @@
   };
 </script>
 
+<div>
 <h3>Hello dates</h3>
+
+<h3>+/- 3 days</h3>
+<ul>
+{#each curDateTasks as task}
+  <li style={`color: ${task.bgcolor};`}>{task.item}</li>
+{/each}
+</ul>
+
+<hr />
+<h3>Current Month</h3>
+<ul>
+  {#each curMonthTasks as task}
+    <li style={`color: ${task.bgcolor};`}>{task.item}</li>
+  {/each}
+  </ul>
+
+</div>
+
+
+<style>
+  
+li {
+    text-align: initial;
+}
+</style>

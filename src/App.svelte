@@ -28,6 +28,9 @@
     "/dates": wrap({
       asyncComponent: () => import("./lib/Dates.svelte"),
     }),
+    "/calendar": wrap({
+      asyncComponent: () => import("./lib/Calendar/index.svelte"),
+    }),
     // Catch-all
     // This is optional, but if present it must be the last
     "*": wrap({
@@ -46,6 +49,7 @@
     <a href="/desknotify" use:link use:active>Desk Notification</a>
     <a href="/cropimg" use:link use:active>Crop Image</a>
     <a href="/dates" use:link use:active>Dates</a>
+    <a href="/calendar" use:link use:active>Calendar</a>
   </nav>
 </header>
 <main>
