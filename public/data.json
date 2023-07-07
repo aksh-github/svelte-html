@@ -1,0 +1,56 @@
+{
+    "0": {
+      "5": []
+    },
+    "$": {
+      "38d45b32": "Investment to Gdrive",
+      "c9019655": "Upload half yearly HDFC bank statement, PPF statement",
+      "832b7b76": "Check and upload Form16",
+      "ea9ecbb2": "Get 26AS, AIS, TIS"
+    },
+    "year": {
+      "Feb": {
+        "8": ["Baba BDay"]
+      },
+      "Mar": {
+        "3": [".38d45b32"],
+        "8": [".38d45b32"],
+        "15": [".38d45b32"],
+        "22": [".38d45b32"]
+      },
+      "Apr": {
+        "5": [".c9019655"],
+        "15": [".c9019655"],
+        "25": [".c9019655", ".ea9ecbb2"]
+      },
+      "May": {
+        "25": [".832b7b76", ".ea9ecbb2"]
+      },
+      "Jun": {
+        "15": [".832b7b76", ".ea9ecbb2"],
+        "25": [".832b7b76", ".ea9ecbb2"]
+      },
+      "Jul": {
+        "15": [".832b7b76", ".ea9ecbb2"],
+        "25": [".832b7b76", ".ea9ecbb2"]
+      },
+      "Aug": {
+        "6": ["Ak BDay", "Renew PUC"],
+        "15": ["Ruta Bday", "Renew PUC"]
+      },
+      "Dec": {
+        "24": ["Pay SBI Insurance"]
+      },
+      "Oct": {
+        "5": [".c9019655"],
+        "15": [".c9019655"],
+        "23": ["aai"],
+        "25": [".c9019655"]
+      }
+    },
+    "month": {
+      "1": ["Vodafone Bill"],
+      "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS"],
+      "5": ["Upload Salary slip", ".38d45b32"]
+    }
+  }

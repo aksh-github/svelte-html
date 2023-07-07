@@ -3,55 +3,11 @@
   import dayjs from "dayjs";
 
   let curDateTasks = [], curMonthTasks = []
+  let duration = "default"
 
-  const data = {
-    "0": {
-      "5": [],
-    },
-    year: {
-      Feb: {
-        "8": ["Baba BDay"],
-      },
-      Mar: {
-        "3": ["Investment to Gdrive"],
-        "8": ["Investment to Gdrive"],
-        "15": ["Investment to Gdrive"],
-        "22": ["Investment to Gdrive"],
-      },
-      Apr: {
-        "5": ["Upload half yearly HDFC bank statement, PPF statement"],
-        "15": ["Upload half yearly HDFC bank statement, PPF statement"],
-        "25": ["Upload half yearly HDFC bank statement, PPF statement", "Get 26AS, AIS, TIS"],
-      },
-      May: {
-        "25": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
-      },
-      Jun: {
-        "15": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
-        "25": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
-      },
-      Jul: {
-        "15": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
-        "25": ["Check and upload Form16", "Get 26AS, AIS, TIS"],
-      },
-      Aug: {
-        "6": ["Ak BDay", "Renew PUC"],
-        "15": ["Ruta Bday", "Renew PUC"],
-      },
-      Dec: {
-        "24": ["Pay SBI Insurance"],
-      },
-      Oct: {
-        "5": ["Upload half yearly HDFC bank statement"],
-        "15": ["Upload half yearly HDFC bank statement"],
-        "25": ["Upload half yearly HDFC bank statement"],
-      },
-    },
-    month: {
-      "1": ["Vodafone Bill"],
-      "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS"],
-      "5": ["Upload Salary slip, Investment to Gdrive"],
-    },
+  let data = {
+    year: {},
+    month: {}
   };
 
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -68,6 +24,8 @@
         Object.keys(curMonthData).forEach((dt) => {
           // console.log(dt + '-' + months[today.month()], curMonthData[dt])
           curMonthData[dt].forEach((d)=> {
+            // if(d.startsWith('.')) console.log('process')
+            d = d.startsWith('.') ? data.$[`${d.replace('.', '')}`] : d
             curMonthTasks = [...curMonthTasks, {item: dt + '-' + months[today.month()] + ": " + d}]
           })
           
@@ -80,7 +38,8 @@
   const processMonth = (today, b4, after) => {
     const monthData = data.month;
 
-    console.log(b4.date() + "-" + months[b4.month()], "to", after.date() + "-" + months[after.month()]);
+    // console.log(b4.date() + "-" + months[b4.month()], "to", after.date() + "-" + months[after.month()]);
+    duration = b4.date() + "-" + months[b4.month()] + " to " + after.date() + "-" + months[after.month()]
 
     Object.keys(monthData).forEach((key) => {
       let dt = dayjs();
@@ -89,22 +48,29 @@
 
       const daysPast = dt.diff(today, "day");
 
-      if (dt.isBefore(after) || dt.isAfter(b4)) {
-        let item = dt.date() + ": " + monthData[key]
-        console.log(item);
-        curDateTasks = [...curDateTasks, {item: item, bgcolor: getColor(daysPast)}]
+      if (dt.isBefore(after) && dt.isAfter(b4)) {
+
+        const curMonthData = monthData[key];
+        curMonthData.forEach((d) => {
+          d = d.startsWith('.') ? data.$[`${d.replace('.', '')}`] : d
+          console.log(d)
+          curDateTasks = [...curDateTasks, {item: dt.date() + '-' + months[today.month()] + ": " + d}]
+        })
       }
         
         
     });
   };
 
-  onMount(() => {
+  onMount(async() => {
     const today = dayjs();
 
     // console.log(months[today.month()]);
 
-    const withinDays = 3;
+    fetch('/data.json').then(resp=>resp.json()).then((resp)=> {
+      console.log(resp)
+      data = resp;
+      const withinDays = 5;
 
     const b4 = today.subtract(withinDays, "day"),
       after = today.add(withinDays, "day");
@@ -126,12 +92,14 @@
         return null;
     }
   };
+    })
+
 </script>
 
 <div>
 <h3>Hello dates</h3>
 
-<h3>+/- 3 days</h3>
+<h3>{duration}</h3>
 <ul>
 {#each curDateTasks as task}
   <li style={`color: ${task.bgcolor};`}>{task.item}</li>
@@ -153,5 +121,8 @@
   
 li {
     text-align: initial;
+    padding: .5em;
+    border: 2px dotted;
+    list-style: none;
 }
 </style>
