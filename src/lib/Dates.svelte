@@ -118,6 +118,11 @@
 
 
 <style>
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
   
 li {
     text-align: initial;

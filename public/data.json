@@ -6,7 +6,10 @@
       "38d45b32": "Investment to Gdrive",
       "c9019655": "Upload half yearly HDFC bank statement, PPF statement",
       "832b7b76": "Check and upload Form16",
-      "ea9ecbb2": "Get 26AS, AIS, TIS"
+      "ea9ecbb2": "Get 26AS, AIS, TIS",
+      "abc": "Check COC with G Shankar",
+      "def": "Cr card payment",
+      "geh": "Fido payment"
     },
     "year": {
       "Feb": {
@@ -50,7 +53,15 @@
     },
     "month": {
       "1": ["Vodafone Bill"],
-      "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS"],
-      "5": ["Upload Salary slip", ".38d45b32"]
+      "2": ["Vodafone Bill"],
+      "5": ["Upload Salary slip", ".38d45b32"],
+      "8": [".abc", ".def"],
+      "9": [".def"],
+      "10": [".abc"],
+      "11": [".abc"],
+      "19": [".geh"],
+      "20": [".geh"],
+      "21": [".geh"],
+      "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS"]
     }
   }
