@@ -4,6 +4,7 @@
 
   let curDateTasks = [], curMonthTasks = []
   let duration = "default"
+  let todayDate = dayjs()
 
   let data = {
     year: {},
@@ -70,7 +71,7 @@
     fetch('/data.json').then(resp=>resp.json()).then((resp)=> {
       console.log(resp)
       data = resp;
-      const withinDays = 5;
+      const withinDays = 4;
 
     const b4 = today.subtract(withinDays, "day"),
       after = today.add(withinDays, "day");
@@ -97,7 +98,7 @@
 </script>
 
 <div>
-<h3>Hello dates</h3>
+<h3>{todayDate?.date() + '-' + months[todayDate?.month()]}</h3>
 
 <h3>{duration}</h3>
 <ul>

@@ -9,7 +9,9 @@
       "ea9ecbb2": "Get 26AS, AIS, TIS",
       "abc": "Check COC with G Shankar",
       "def": "Cr card payment",
-      "geh": "Fido payment"
+      "geh": "Fido payment",
+      "zxy": "MSEB Bill",
+      "mno": "Vodafone Bill"
     },
     "year": {
       "Feb": {
@@ -52,16 +54,18 @@
       }
     },
     "month": {
-      "1": ["Vodafone Bill"],
-      "2": ["Vodafone Bill"],
+      "1": [".mno", ".def"],
+      "2": [".mno", ".def"],
+      "3": [".mno", ".def"],
       "5": ["Upload Salary slip", ".38d45b32"],
-      "8": [".abc", ".def"],
-      "9": [".def"],
-      "10": [".abc"],
       "11": [".abc"],
+      "12": [".abc", ".zxy"],
+      "13": [".zxy"],
+      "14": [".abc", ".zxy"],
       "19": [".geh"],
       "20": [".geh"],
       "21": [".geh"],
-      "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS"]
+      "29": [".def"],
+      "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS", ".def"]
     }
   }
