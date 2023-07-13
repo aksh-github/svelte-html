@@ -56,7 +56,7 @@
     "month": {
       "1": [".mno", ".def"],
       "2": [".mno", ".def"],
-      "3": [".mno", ".def"],
+      "3": [".mno", ".def", ".abc"],
       "5": ["Upload Salary slip", ".38d45b32"],
       "11": [".abc"],
       "12": [".abc", ".zxy"],
