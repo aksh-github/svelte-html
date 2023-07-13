@@ -64,8 +64,8 @@
       "14": [".abc", ".zxy"],
       "19": [".geh"],
       "20": [".geh"],
-      "21": [".geh"],
-      "29": [".def"],
+      "21": [".geh", ".abc"],
+      "29": [".abc", ".def"],
       "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS", ".def"]
     }
   }
