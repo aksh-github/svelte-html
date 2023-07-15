@@ -7,14 +7,22 @@
       "c9019655": "Upload half yearly HDFC bank statement, PPF statement",
       "832b7b76": "Check and upload Form16",
       "ea9ecbb2": "Get 26AS, AIS, TIS",
-      "abc": "Check COC with G Shankar",
+      "abc": "Check COC on EPFO",
       "def": "Cr card payment",
       "geh": "Fido payment",
-      "zxy": "MSEB Bill",
-      "mno": "Vodafone Bill"
+      "mno": "Vodafone Bill",
+      "canv": "Canada Visa Renew"
     },
     "year": {
+      "Jan": {
+        "1": [".canv"],
+        "7": [".canv"],
+        "10": [".canv"],
+        "17": [".canv"],
+        "24": [".canv"]
+      },
       "Feb": {
+        "1": [".canv"],
         "8": ["Baba BDay"]
       },
       "Mar": {
@@ -40,32 +48,35 @@
         "25": [".832b7b76", ".ea9ecbb2"]
       },
       "Aug": {
-        "6": ["Ak BDay", "Renew PUC"],
-        "15": ["Ruta Bday", "Renew PUC"]
-      },
-      "Dec": {
-        "24": ["Pay SBI Insurance"]
+        "15": ["Ruta Bday"]
       },
       "Oct": {
         "5": [".c9019655"],
         "15": [".c9019655"],
         "23": ["aai"],
         "25": [".c9019655"]
+      },
+      "Dec": {
+        "22": [".canv"],
+        "24": ["Pay SBI Insurance",".canv"],
+        "29": ["Pay SBI Insurance",".canv"]
       }
     },
     "month": {
-      "1": [".mno", ".def"],
-      "2": [".mno", ".def"],
-      "3": [".mno", ".def", ".abc"],
-      "5": ["Upload Salary slip", ".38d45b32"],
-      "11": [".abc"],
-      "12": [".abc", ".zxy"],
-      "13": [".zxy"],
-      "14": [".abc", ".zxy"],
+      "1": [".mno"],
+      "2": [".mno"],
+      "3": [".mno", ".abc"],
+      "5": ["Upload Salary slip", ".38d45b32", ".def"],
+      "15": [".def"],
       "19": [".geh"],
       "20": [".geh"],
-      "21": [".geh", ".abc"],
-      "29": [".abc", ".def"],
-      "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS", ".def"]
+      "21": [".geh"],
+      "29": [".def"],
+      "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS"]
+    },
+    "custom": {
+      "m:/5": [".abc"],
+      "m:/7": [".def"],
+      "w:Mon,Tue,Wed,Thu,Fri": ["TCS Timesheet", "USB Timesheet"]
     }
   }
