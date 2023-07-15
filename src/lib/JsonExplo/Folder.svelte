@@ -30,7 +30,7 @@
   }
 </script>
 
-<span name={parentName} class:expanded on:click={toggle}
+<span name={parentName} class:expanded on:click={toggle} on:keydown={()=>{}}
   >{displayName || ""} {files instanceof Array ? " [ ]" : " { }"}</span
 >
 
@@ -43,6 +43,7 @@
           e.stopPropagation();
           liClicked(file);
         }}
+        on:keydown={()=>{}}
       >
         {#if typeof file[1] === "object"}
           {file[0]}: <svelte:self files={file[1]} parentName={parentName + "." + file[0]} displayName={""} />
@@ -70,7 +71,7 @@
   }
 
   ul {
-    padding: 0.2em 0 0 0.5em;
+    padding: 0.2em 0 0 1.5em;
     margin: 0 0 0 0.5em;
     list-style: none;
     border-left: 1px solid #eee;
@@ -78,5 +79,9 @@
 
   li {
     padding: 0.2em 0;
+  }
+
+  li > div {
+    display: inline;
   }
 </style>
