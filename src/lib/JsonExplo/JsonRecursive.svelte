@@ -165,7 +165,7 @@
 </script>
 
 <input bind:value={path} />
-<div class="explorer" on:click={eleClicked}>
+<div class="explorer" on:click={eleClicked} on:keydown={()=>{}}>
   <Folder displayName="$" files={root2} parentName="" expanded />
 </div>
 
