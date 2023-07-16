@@ -11,7 +11,8 @@
       "def": "Cr card payment",
       "geh": "Fido payment",
       "mno": "Vodafone Bill",
-      "canv": "Canada Visa Renew"
+      "canv": "Canada Visa Renew",
+      "cmo": "Chin Medical, Ola claim"
     },
     "year": {
       "Jan": {
@@ -75,7 +76,7 @@
       "30": ["Electricity Bill", "M Gas Bill", "Declare investments to TCS"]
     },
     "custom": {
-      "m:/5": [".abc"],
+      "m:/5": [".abc", ".cmo"],
       "m:/7": [".def"],
       "w:Mon,Tue,Wed,Thu,Fri": ["TCS Timesheet", "USB Timesheet"]
     }
