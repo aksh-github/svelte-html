@@ -14,6 +14,8 @@
     custom: {},
   };
 
+  const colors = ['#001f3f', "#0074D9", "#3D9970", "#2ECC40", "#FFDC00"]
+
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const months = [
     "Jan",
@@ -216,20 +218,20 @@
 </script>
 
 <div>
-  <h3>{todayDate?.date() + "-" + months[todayDate?.month()]}</h3>
+  <h2>{todayDate?.date() + "-" + months[todayDate?.month()]}</h2>
 
-  <h3>{duration}</h3>
+  <h2>{duration}</h2>
   <ul>
     {#each curDateTasks as task}
-      <li style={`color: ${task.bgcolor};`}>{task.item}</li>
+      <li style={`background: ${colors[Math.floor(Math.random()*colors.length)]};`}>{task.item}</li>
     {/each}
   </ul>
 
   <hr />
-  <h3>Current Month: {months[todayDate.month()]}</h3>
+  <h2>{months[todayDate.month()]}</h2>
   <ul>
     {#each curMonthTasks as task}
-      <li style={`color: ${task.bgcolor};`}>{task.item}</li>
+      <li style={`background: ${colors[Math.floor(Math.random()*colors.length)]};`}>{task.item}</li>
     {/each}
   </ul>
 </div>
@@ -242,8 +244,11 @@
 
   li {
     text-align: initial;
-    padding: 0.5em;
-    border: 2px dotted;
+    padding: 1em;
+    margin-bottom: 1em;
     list-style: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 2em;
   }
 </style>
