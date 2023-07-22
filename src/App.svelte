@@ -31,6 +31,9 @@
     "/calendar": wrap({
       asyncComponent: () => import("./lib/Calendar/index.svelte"),
     }),
+    "/monaco": wrap({
+      asyncComponent: () => import("./lib/Monaco/monaco.svelte"),
+    }),
     // Catch-all
     // This is optional, but if present it must be the last
     "*": wrap({
@@ -48,6 +51,8 @@
     <a href="/jsonrecursive" use:link use:active>Json Explorer</a>
     <a href="/desknotify" use:link use:active>Desk Notification</a>
     <a href="/cropimg" use:link use:active>Crop Image</a>
+    <a href="/monaco" use:link use:active>Monaco</a>
+    <a href="/jsonedit" use:link use:active>Json Editor</a>
     <a href="/dates" use:link use:active>Dates</a>
     <a href="/calendar" use:link use:active>Calendar</a>
   </nav>
@@ -58,7 +63,7 @@
 
 <style>
   main {
-    padding: 5em;
+    padding: 2em;
   }
 
   nav {
